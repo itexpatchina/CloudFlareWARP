@@ -40,7 +40,7 @@ I said in one of prevous sentences that this config "is supposed to work", but i
 
 # Search for Working Endpoints
 
-Although the starndard "engage.cloudflareclient.com:2408" endpoint usually fails. luckily yet among the previously listed ingress IP addresses, you can always find some still working. One of Chinese tech yourbuers "yonggekkk" shares his scripts in this project () that you can use to find a batch of possible working endpoints (pairs of IPs and correpsonding ports).
+Although the starndard "engage.cloudflareclient.com:2408" endpoint usually fails. luckily yet among the previously listed ingress IP addresses, you can always find some still working. One of Chinese tech yourbuers "yonggekkk" shares his scripts in this project (https://github.com/yonggekkk/warp-yg) that you can use to find a batch of possible working endpoints (pairs of IPs and correpsonding ports). The direct link to the Windows-only scripts bundle is here (https://github.com/yonggekkk/warp-yg/blob/main/WIN%E7%AB%AFwarp%E8%87%AA%E9%80%89IP-v23.11.15.zip). Be aware that this zip file contains "suspicious" codes which Windows Defender will ring alarms about. I'd highly suggest that you use a separate VM in the same network with your current workstation to run these test scripts. Also understanding Chinese would certainly help because the interactive menu is in Chinese.
 
 
 
