@@ -56,6 +56,7 @@ Therefore, while the bot-generated config file might work in less restricted reg
 While the default endpoint `engage.cloudflareclient.com:2408` often fails inside mainland China, several Cloudflare ingress IPs (previously listed) may still be accessible.
 
 Chinese tech YouTuber **yonggekkk** shares a helpful set of scripts on GitHub that can scan and identify working endpoint IP–port pairs.  
+
 🔗 GitHub Project: [warp-yg](https://github.com/yonggekkk/warp-yg)  
 📦 Windows-only Script Bundle: [Download ZIP](https://github.com/yonggekkk/warp-yg/raw/refs/heads/main/WIN%E7%AB%AFwarp%E8%87%AA%E9%80%89IP-v23.11.15.zip)
 
@@ -70,7 +71,16 @@ Chinese tech YouTuber **yonggekkk** shares a helpful set of scripts on GitHub th
 
 ## Using Viable Endpoints in WireGuard
 
-In the previous step, the test script outputs a `result.csv` file containing viable IPv4 endpoint addresses. You can choose one of the working IP–port pairs to replace the default Cloudflare endpoint `engage.cloudflareclient.com:2408` in your `wg-config.conf` file.
+In the previous step, the test script outputs a `result.csv` file containing viable IPv4 endpoint addresses. 
+
+## 📥 Download Previously Tested Files
+
+I’ve uploaded two CSV files — `result1.csv` and `result2.csv` — from earlier test runs using the script bundle. They are available in the root directory of this GitHub repository and can be used as reference samples or for further testing:
+
+- [`result1.csv`](https://github.com/itexpatchina/CloudFlareWARP/raw/main/result1.csv)
+- [`result2.csv`](https://github.com/itexpatchina/CloudFlareWARP/raw/main/result2.csv)
+
+You can choose one of the working IP–port pairs to replace the default Cloudflare endpoint `engage.cloudflareclient.com:2408` in your `wg-config.conf` file.
 
 For instance, if `162.159.192.86:1387` is confirmed as functional, simply update the endpoint line: `Endpoint = 162.159.192.86:1387`
 
