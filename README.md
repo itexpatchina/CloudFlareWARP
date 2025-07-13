@@ -22,3 +22,7 @@ Because WARP supports Wireguard protocol and essentially just a Wireguard implem
 And one of the most frequently used ways by myself is through the below Telegram bot:
 
 <img width="335" height="442 " alt="image" src="https://github.com/user-attachments/assets/789096c1-7ee5-48c2-8995-a9962e4c7e71" />
+
+By simply typing /generate command to this chat bot, you can easily obtain a wg-config.conf wireguard configuration file that is supposed to work if you load it into a standard Wireguard app (Iphone, Android or Windows).
+
+<img width="445" height="464" alt="image" src="https://github.com/user-attachments/assets/b47b9dfb-bcae-44be-967f-9fdfdfde4f22" />
