@@ -2,34 +2,50 @@
 
 ## 开场白（0:00–0:30）
 
-大家好，欢迎来到 **IT Expat** 频道。我是一名专注于技术教程的内容创作者。
+大家好，欢迎来到 **IT Expat China** 的油管频道。我是一名专注于技术教程的内容创作者。
 
-你是否曾经尝试过使用 WARP VPN，却始终无法在中国大陆连接成功？  
-在本视频中，我将一步步教你如何生成 WireGuard 配置、绕过 GFW 干扰，并连接 Cloudflare WARP。
+免费VPN的头牌，CloudFlare的WARP已经和中国大陆的用户相爱相杀好几年了。
+
+从最开始的极度好用，到现在的断断续续。
+
+你肯定也经历过用WARP的客户端，却始终无法连接成功的经历？  
+
+<img width="346" height="446" alt="image" src="https://github.com/user-attachments/assets/af6efca7-2485-401d-aac1-a47754b0a2c8" />
+
+
+在本视频中，我将一步步教你如何生成 WireGuard 配置、通过Wireguard客户端连接 Cloudflare WARP的官方对端节点，来实现科学上网。
 
 ---
 
 ## 第 1 部分：WARP 在中国大陆为什么无法使用（0:30–1:30）
 
-从 2024 年底起，Cloudflare 的官方 WARP 和 1.1.1.1 应用在中国大陆已经难以正常连接。  
-主要原因是它们的入口 IP 被 GFW（防火长城）屏蔽了。
+从 2024 年底起，Cloudflare 的官方 WARP 和 1.1.1.1 应用在中国大陆已经难以正常连接。 主要原因当然就是是WARP的入口IP和端口被GFW屏蔽了。
 
-Cloudflare 公布的 WireGuard 接入网段如下：
+Cloudflare 公布的 WireGuard 接入IP地址网段是固定的，也可以在CloudFlare官网上查看，我也会在视频的说明区域把链接展示出来。
+
+
+以下是一部分CloudFlare WARP接入IP和端口的格式，那么我们可以看到这些IP和端口号的选择都是由固定规律的。
 
 - IPv4：`162.159.193.0/24`
 - 默认端口：`UDP 2408`，备用端口为 `500 / 1701 / 4500`
 
-你可能仍然能下载 App，但点击“连接”按钮时永远停留在“正在连接”阶段。
+这些固定的IP地址池很容易就受到GFW的干扰，让正常的WARP链接请求失效，当然经过我个人的实验，IP网段里的地址并不是全部都被屏蔽的。
+
+只要我们能够找到可以连接到的对端IP和端口，我们就可以使用Wireguard协议和客户端实现链接。
 
 ---
 
 ## 第 2 部分：用 Telegram Bot 生成 WireGuard 配置（1:30–3:00）
 
-我们可以使用 Telegram 上的一个机器人，通过 `/generate` 命令快速生成配置文件。
+我们可以使用 Telegram 上的一个WARP配置文件生成的机器人，通过 `/generate` 这个很简单的命令快速生成配置文件。
 
-生成后，你将获得一个名为 `wg-config.conf` 的文件，可以直接导入 WireGuard 应用（支持 iOS / Android / Windows）。
+我也把这个机器人的二维码以及链接在视频的说明文件部分展示出来。
+
+生成后，你将获得一个名为 `wg-config.conf` 的文件，这个文件可以直接导入 任意一个平台的WireGuard 应用，如Windows,MacOS或者是手机App。
 
 > 小贴士：Telegram 在中国大陆也可能需要科学上网访问。
+
+那我们现在就把这个生成的文件导入WireGuard客户端，并试着连接一下。
 
 ---
 
