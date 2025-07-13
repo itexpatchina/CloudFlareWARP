@@ -17,4 +17,6 @@ UDP 1701
 UDP 4500
 
 # Wireguard Configuration File 
-Because 
+Because WARP supports Wireguard protocol and essentially just a Wireguard implemention done by CloudFlare, there must be ways to extract these Wireguard configuration files or simply build new configuration files as long as they fit CloudFlare's standard settings. 
+And one of the most frequently used ways by myself is through the below Telegram bot:
+
