@@ -1,5 +1,6 @@
-# CloudFlareWARP
-WARP VPN Related Knowledge Share for users behind China's GFW. This article is mainly about how to use CloudFlare's free VPN solution when you are in mainland China.
+# WARP VPN Related Knowledge Share
+This article is mainly about how to use CloudFlare's free VPN solution when you are in mainland China.
+<img src="https://one.one.one.one/media/warp-plus.png"/>
 
 # Current Status of WARP app in China
 WARP or the 1.1.1.1 app is, generally speaking, not working behind China's GFW since somewhere in 2024. During some good old days in 2023, this app was in full fledge on my Iphone, Android devices as well as on my PC's.
