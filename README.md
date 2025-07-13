@@ -70,7 +70,7 @@ Chinese tech YouTuber **yonggekkk** shares a helpful set of scripts on GitHub th
 
 In the previous step, the test script outputs a `result.csv` file containing viable IPv4 endpoint addresses. You can choose one of the working IP–port pairs to replace the default Cloudflare endpoint `engage.cloudflareclient.com:2408` in your `wg-config.conf` file.
 
-For instance, if `162.159.192.86:1387` is confirmed as functional, simply update the endpoint line: Endpoint = 162.159.192.86:1387
+For instance, if `162.159.192.86:1387` is confirmed as functional, simply update the endpoint line: `Endpoint = 162.159.192.86:1387`
 
 <img width="272" height="79" alt="image" src="https://github.com/user-attachments/assets/13171155-679a-4762-8260-5d0676b5d5cc" />
 
