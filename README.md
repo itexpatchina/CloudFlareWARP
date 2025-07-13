@@ -36,6 +36,12 @@ Also, I put the content of this wg-config.conf file below for your reference (ke
 
 <img width="412" height="175" alt="image" src="https://github.com/user-attachments/assets/85de15ed-373f-4fa6-a220-8a40833430e5" />
 
-I said in one of prevous sentences that this config "is supposed to work", but it surely will not if you are inside China, because the endpoint "engage.cloudflareclient.com:2408" is liely to be resolved into an IP address that is geographically near your location and most certainly already banned by GFW.
+I said in one of prevous sentences that this config "is supposed to work", but it surely will not if you are inside China, because the endpoint "engage.cloudflareclient.com:2408" is liely to be resolved into an IP address that is geographically near your location and most certainly already banned by GFW. And this is exactly what happens if you toggles the "connect" button on the WARP app on your phone or your desktop.
+
+# Search for Working Endpoints
+
+Although the starndard "engage.cloudflareclient.com:2408" endpoint usually fails. luckily yet among the previously listed ingress IP addresses, you can always find some still working. One of Chinese tech yourbuers "yonggekkk" shares his scripts in this project () that you can use to find a batch of possible working endpoints (pairs of IPs and correpsonding ports).
+
+
 
 
