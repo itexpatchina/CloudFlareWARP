@@ -26,3 +26,10 @@ And one of the most frequently used ways by myself is through the below Telegram
 By simply typing /generate command to this chat bot, you can easily obtain a wg-config.conf wireguard configuration file that is supposed to work if you load it into a standard Wireguard app (Iphone, Android or Windows).
 
 <img width="445" height="464" alt="image" src="https://github.com/user-attachments/assets/b47b9dfb-bcae-44be-967f-9fdfdfde4f22" />
+
+Also, I put the content of this wg-config.conf file below for your reference (keys are cut short just in case):
+
+<img width="412" height="175" alt="image" src="https://github.com/user-attachments/assets/85de15ed-373f-4fa6-a220-8a40833430e5" />
+
+
+
