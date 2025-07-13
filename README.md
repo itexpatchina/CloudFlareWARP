@@ -1,3 +1,5 @@
+> 📘 **中文版本**：如果您在中国大陆，请查看本项目的 [中文说明文档](./README_CN.md)。
+
 # WARP VPN Usage Guide in Mainland China
 
 This document provides a practical overview of how to use Cloudflare’s free VPN services — WARP and 1.1.1.1 — while operating within mainland China.
