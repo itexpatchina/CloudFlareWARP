@@ -69,6 +69,13 @@ YouTuber **yonggekkk** 在 GitHub 上发布了一套用于扫描可用 IP 和端
 
 运行脚本后会生成一个 `result.csv` 文件，包含可用的 IPv4 地址和端口组合。你可以将其中一个有效 IP 替换原配置文件中的默认端点。
 
+## 📥 下载历史测试结果文件
+
+以下为我在之前测试过程中上传的两个 CSV 文件，存放于本项目的主目录下，可用于参考或进一步分析：
+
+- [`result1.csv`](https://github.com/itexpatchina/CloudFlareWARP/raw/main/result1.csv)
+- [`result2.csv`](https://github.com/itexpatchina/CloudFlareWARP/raw/main/result2.csv)
+
 例如，如果确认 `162.159.192.86:1387` 可用，只需将配置文件中的行修改为：  
 `Endpoint = 162.159.192.86:1387`
 
