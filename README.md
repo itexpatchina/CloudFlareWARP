@@ -20,3 +20,4 @@ UDP 4500
 Because WARP supports Wireguard protocol and essentially just a Wireguard implemention done by CloudFlare, there must be ways to extract these Wireguard configuration files or simply build new configuration files as long as they fit CloudFlare's standard settings. 
 And one of the most frequently used ways by myself is through the below Telegram bot:
 
+<img width="335" height="442 " alt="image" src="https://github.com/user-attachments/assets/789096c1-7ee5-48c2-8995-a9962e4c7e71" />
