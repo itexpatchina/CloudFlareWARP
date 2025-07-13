@@ -1,46 +1,69 @@
-# WARP VPN Related Knowledge Share
-This article is mainly about how to use CloudFlare's free VPN solution WARP or 1.1.1.1 when you are in mainland China.
+# WARP VPN Usage Guide in Mainland China
+
+This document provides a practical overview of how to use Cloudflare’s free VPN services — WARP and 1.1.1.1 — while operating within mainland China.
+
 <img src="https://one.one.one.one/media/warp-plus.png"/>
 
-# Current Status of WARP app in China
-WARP or the 1.1.1.1 app does, generally speaking, NOT work behind China's GFW since somewhere in 2024. During some good old days in 2023, this app was in full fledge on my Iphone, Android devices as well as on my PC's.
-Of course, you can still download and install it on your Iphone and Android, provided you have an outside-of-China Apple ID or somehow have access to Google Play Store. However, a sucessful established connection is mostly rare if not impossible.
-Most Chinese tech youtubers suspect that Cloudflare's ingress IPs are all on the blacklist of China's GFW and it is definitely a valid suspicion. As CloudFlare does honestly pulish their WARP ingress IP list on this page: https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/firewall/#warp-ingress-ip
+## Current Status of the WARP App in China
 
-Below list is quoted on 2025-07-13 for Wireguard protocol:
+As of 2025, Cloudflare’s WARP and 1.1.1.1 apps generally do **not** function reliably behind China’s Great Firewall (GFW). In contrast, throughout much of 2023, the apps operated smoothly across iPhones, Android devices, and PCs.
 
-IPv4 address	162.159.193.0/24
+While it’s still possible to download and install the apps — assuming access to a non-China Apple ID or Google Play Store — successfully establishing a WARP connection has become increasingly rare, if not impossible.
 
-IPv6 address	2606:4700:100::/48
+Many Chinese tech YouTubers suspect that Cloudflare’s ingress IPs have been blacklisted by the GFW, and this theory holds weight. Cloudflare openly publishes its WARP ingress IP list here:  🔗 [Cloudflare WARP Ingress IPs](https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/firewall/#warp-ingress-ip)
 
-Default port	UDP 2408
+### WireGuard Protocol IP Ranges (Quoted from Cloudflare on 2025-07-13)
 
-Fallback ports	UDP 500
+- **IPv4 Range**: `162.159.193.0/24`  
+- **IPv6 Range**: `2606:4700:100::/48`  
+- **Default Port**: `UDP 2408`  
+- **Fallback Ports**:  
+  - `UDP 500`  
+  - `UDP 1701`  
+  - `UDP 4500`
 
-UDP 1701
+## WireGuard Configuration via Telegram Bot
 
-UDP 4500
+Since Cloudflare's WARP is fundamentally a WireGuard-based solution, it’s possible to either extract an existing configuration or create a new one — provided it adheres to Cloudflare’s standard settings.
 
-# Wireguard Configuration File 
-Because WARP supports Wireguard protocol and essentially just a Wireguard implemention done by CloudFlare, there must be ways to extract these Wireguard configuration files or simply build new configuration files as long as they fit CloudFlare's standard settings. 
-And one of the most frequently used ways by myself is through the below Telegram bot:
+One of the most convenient tools I use personally is the following Telegram bot:
 
-<img width="335" height="442 " alt="image" src="https://github.com/user-attachments/assets/789096c1-7ee5-48c2-8995-a9962e4c7e71" />
+<img width="335" height="442" alt="Telegram Bot Interface" src="https://github.com/user-attachments/assets/789096c1-7ee5-48c2-8995-a9962e4c7e71" />
 
-By simply typing /generate command to this chat bot, you can easily obtain a wg-config.conf wireguard configuration file that is supposed to work if you load it into a standard Wireguard app (Iphone, Android or Windows).
+Simply send the `/generate` command to this bot, and you’ll receive a `wg-config.conf` file — a valid WireGuard configuration that can be imported into the standard WireGuard app (iOS, Android, or Windows).
 
-<img width="450" height="188" alt="image" src="https://github.com/user-attachments/assets/9be0fe66-215d-4da5-b661-e60c1c4f84ad" />
+<img width="450" height="188" alt="Generated WireGuard Config File" src="https://github.com/user-attachments/assets/9be0fe66-215d-4da5-b661-e60c1c4f84ad" />
 
 
-Also, I put the content of this wg-config.conf file below for your reference (keys are cut short just in case):
+## Limitations of WireGuard Config Inside China
 
-<img width="412" height="175" alt="image" src="https://github.com/user-attachments/assets/85de15ed-373f-4fa6-a220-8a40833430e5" />
+Below is a sample `wg-config.conf` file generated via the Telegram bot (sensitive keys truncated for privacy):
 
-I said in one of prevous sentences that this config "is supposed to work", but it surely will not if you are inside China, because the endpoint "engage.cloudflareclient.com:2408" is liely to be resolved into an IP address that is geographically near your location and most certainly already banned by GFW. And this is exactly what happens if you toggles the "connect" button on the WARP app on your phone or your desktop.
+<img width="412" height="175" alt="Sample WireGuard Configuration" src="https://github.com/user-attachments/assets/85de15ed-373f-4fa6-a220-8a40833430e5" />
 
-# Search for Working Endpoints
+While this configuration may appear valid, it typically **will not work inside mainland China** due to how DNS resolution interacts with the Great Firewall (GFW). Specifically:
 
-Although the starndard "engage.cloudflareclient.com:2408" endpoint usually fails. luckily yet among the previously listed ingress IP addresses, you can always find some still working. One of Chinese tech yourbuers "yonggekkk" shares his scripts in this project (https://github.com/yonggekkk/warp-yg) that you can use to find a batch of possible working endpoints (pairs of IPs and correpsonding ports). The direct link to the Windows-only scripts bundle is here (https://github.com/yonggekkk/warp-yg/blob/main/WIN%E7%AB%AFwarp%E8%87%AA%E9%80%89IP-v23.11.15.zip). Be aware that this zip file contains "suspicious" codes which Windows Defender will ring alarms about. I'd highly suggest that you use a separate VM in the same network with your current workstation to run these test scripts. Also understanding Chinese would certainly help because the interactive menu is in Chinese.
+- The endpoint `engage.cloudflareclient.com:2408` often resolves to a Cloudflare ingress IP close to the user’s geographic location.
+- These localized IPs are highly likely to be blacklisted by GFW, resulting in failed connections.
+- This same behavior occurs when using the WARP app directly — tapping the "Connect" button simply attempts to resolve and connect to one of those inaccessible ingress IPs.
+
+Therefore, while the bot-generated config file might work in less restricted regions, additional measures are needed for stable connectivity within China.
+
+## Searching for Viable Endpoints
+
+While the default endpoint `engage.cloudflareclient.com:2408` often fails inside mainland China, several Cloudflare ingress IPs (previously listed) may still be accessible.
+
+Chinese tech YouTuber **yonggekkk** shares a helpful set of scripts on GitHub that can scan and identify working endpoint IP–port pairs.  
+🔗 GitHub Project: [warp-yg](https://github.com/yonggekkk/warp-yg)  
+📦 Windows-only Script Bundle: [Download ZIP](https://github.com/yonggekkk/warp-yg/blob/main/WIN%E7%AB%AFwarp%E8%87%AA%E9%80%89IP-v23.11.15.zip)
+
+> ⚠️ **Security Warning**:  
+> Windows Defender may flag parts of this script as suspicious. Use a **dedicated virtual machine (VM)** on the same network as your main workstation to run tests safely.
+
+> 🈶 **Language Note**:  
+> The script’s interactive menu is in Chinese, so basic understanding of the language will help navigate it more efficiently.
+
+<img width="260" height="55" alt="Script Running Screenshot" src="https://github.com/user-attachments/assets/9ef05c97-6b29-4f6b-a2a5-705a2fc3fd2b" />
 
 
 
