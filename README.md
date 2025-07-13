@@ -1,9 +1,9 @@
 # WARP VPN Related Knowledge Share
-This article is mainly about how to use CloudFlare's free VPN solution when you are in mainland China.
+This article is mainly about how to use CloudFlare's free VPN solution WARP or 1.1.1.1 when you are in mainland China.
 <img src="https://one.one.one.one/media/warp-plus.png"/>
 
 # Current Status of WARP app in China
-WARP or the 1.1.1.1 app is, generally speaking, not working behind China's GFW since somewhere in 2024. During some good old days in 2023, this app was in full fledge on my Iphone, Android devices as well as on my PC's.
+WARP or the 1.1.1.1 app does, generally speaking, NOT work behind China's GFW since somewhere in 2024. During some good old days in 2023, this app was in full fledge on my Iphone, Android devices as well as on my PC's.
 Of course, you can still download and install it on your Iphone and Android, provided you have an outside-of-China Apple ID or somehow have access to Google Play Store. However, a sucessful established connection is mostly rare if not impossible.
 Most Chinese tech youtubers suspect that Cloudflare's ingress IPs are all on the blacklist of China's GFW and it is definitely a valid suspicion. As CloudFlare does honestly pulish their WARP ingress IP list on this page: https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/firewall/#warp-ingress-ip
 
@@ -32,6 +32,6 @@ Also, I put the content of this wg-config.conf file below for your reference (ke
 
 <img width="412" height="175" alt="image" src="https://github.com/user-attachments/assets/85de15ed-373f-4fa6-a220-8a40833430e5" />
 
-I said in prevous sentences that this config "is supposed to work", but it surely won't if you are inside China, because the endpoint "engage.cloudflareclient.com:2408" will resolved into an IP address that is geographically near your location and likely already banned by GFW.
+I said in one of prevous sentences that this config "is supposed to work", but it surely will not if you are inside China, because the endpoint "engage.cloudflareclient.com:2408" is liely to be resolved into an IP address that is geographically near your location and most certainly already banned by GFW.
 
 
